@@ -1,0 +1,56 @@
+<div class="container">
+	<h2>Préstamo</h2>
+		<form class="form-horizontal" role="form" method="post" ng-submit="addprest(udpShopContent);">
+
+			
+		    <div class="col-md-8" ng-show="udpShopContent.length <=0">
+		    	<h4>No hay artículos en la lista</h4>
+		    	<a href="#/inventario">Agrega artículos</a>
+		    	<br>
+			</div>
+			<div class="col-md-11" ng-show="udpShopContent.length >0">
+				
+				<div class="form-group">
+		    	<label class="control-label col-sm-2" for="alMat">Matrícula de Alumno:</label>
+		    	<div class="col-sm-5">
+			    	<input type="text" title="Solo 8 digitos" pattern="^\d{8}$"class="form-control" id="alMat" ng-model="alID" required>
+			    	<span ng-show="vAl==0" class="help-inline" >No existe el alumno con esta matrícula</span>
+		      	</div>
+		    </div>
+
+		    <br>
+		    <h4>Lista de Artículos</h4> <br>
+				<table class="table table-striped">
+					  <thead>
+					    <tr>
+					      <th>Id</th>
+					      <th>Nombre</th>
+					      <th>Cantidad</th>
+					      <th>Opciones</th>
+					    </tr>
+					  </thead>
+					  <tbody>		  	
+					    <tr ng-repeat="prod in udpShopContent">
+					      <td>{{prod.id}}</td>
+					      <td>{{prod.name}}</td>
+					      <td> 
+					      	<div class="col-md-4">
+					      	<input type="text" class="form-control" id="usr" ng-model="prod.qty" >
+					      	</div>
+						  </td>
+					      <td><button type="button" class="btn btn-primary" ng-click="remove(prod.id)">Eliminar Articulo</button></td>
+					    </tr>
+					    <tr>
+					    	<td colspan="6">
+					    		<button type="button" class="btn btn-primary" ng-click="destroy()">Limpiar Lista</button>	
+					    		<input type="submit" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary" value="Realizar Prestamo">
+					    		
+					    	</td>
+					    <tr>	
+					  </tbody>
+					</table>
+				</div>
+
+
+		</form>	
+</div>

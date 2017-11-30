@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="login" ng-app>
+<head>	
+	<meta charset="utf-8">
+	<title>Ingresar-Prestamos UAZ CJ</title>  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap-3.3.4/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-3.3.4/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.min.js"></script>
+	<script src="app/cart.js"></script>
+	<script src="app/app.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row-fluid">
+			<div class="header">
+					<div id="logo">
+						<img src="images/logo.png" width="80%" height="80%" class="img-responsive">
+					</div>	
+					<div id="f">
+						<p class="text-right fecha"></p>
+					</div>
+					<div id="slogan">
+						Préstamos UAZ Campus Jalpa
+					</div>		
+			<!-- fin del header -->	
+			</div>
+			<div class="col-md-6 quitar-float center-block jumbotron" id="formulario" ng-controller="loginCtrl">
+				<h3>Iniciar Sesión</h3>
+				 	<form class="form-horizontal" method="post" role="form" ng-submit="iniciarSesion();"> 
+
+					    <div class="form-group">
+					    	<label class="control-label col-sm-2" for="admUsr">Usuario:</label>
+					    	<div class="col-sm-10">          
+					    		<input type="text" title="Ingrese su usuario" class="form-control" id="admUsr" ng-model="usuario" required>
+					      	</div>
+					    </div>
+
+					    <div class="form-group">
+					    	<label class="control-label col-sm-2" for="admPsw">Contraseña:</label>
+					    	<div class="col-sm-10">          
+					    		<input type="password" class="form-control" title="Ingrese su contraseña" id="admPsw" ng-model="contrasena" required>
+					    		<span ng-show="li==0" class="help-inline">Usuario o contraseña incorrectos</span>
+
+					      	</div>
+					    </div>
+
+					    <div class="form-group">        
+					    	<div class="col-sm-offset-2 col-sm-10">
+					    		<input type="submit" class="btn btn-primary" value="Iniciar Sesión">
+					      	</div>
+				    	</div>
+
+					</form>	 
+        	</div>
+		</div>	
+	</div>
+</body>
+</html>

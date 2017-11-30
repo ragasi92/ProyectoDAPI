@@ -1,0 +1,63 @@
+
+<div class="view">
+    <div class="container">
+        <div class="row">
+        
+        <header>
+            <h3>Editar Alumno</h3>
+            <br><br>
+        </header>
+        <div class="col-md-10">
+
+<form role="form" name="myForm" method="post" class="form-horizontal" ng-submit="saveAlumno(alumno);">
+<div class="row">
+
+<div class= "form-group">
+    <label class= "col-md-2"> Matrícula: </label>
+    <div class="col-md-4">
+    <input name="name" ng-model="alumno.alumno_matricula" type= "text" class= "form-control" placeholder="Matrícula" disabled/>
+    
+    </div>
+</div>
+
+<div class= "form-group" ng-class="{error: myForm.name.$invalid}">
+    <label class= "col-md-2"> Nombre: </label>
+    <div class="col-md-4">
+    <input name="name" ng-model="alumno.alumno_nombre" type= "text" class= "form-control" placeholder="Nombre(s)" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required/>
+    <span ng-show="myForm.name.$dirty && myForm.name.$invalid" class="help-inline">Required</span>
+    </div>
+</div>
+<div class= "form-group">
+    <label class= "col-md-2">Apellido Paterno: </label>
+    <div class="col-md-4">
+    <input ng-model="alumno.alumno_apellidop" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" type= "text" class= "form-control" placeholder= "Primer apellido" required/>
+    </div>
+</div>
+<div class= "form-group">
+    <label class= "col-md-2">Apellido Materno: </label>
+    <div class="col-md-4">
+    <input  type= "text" class= "form-control" ng-model="alumno.alumno_apellidom" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" placeholder= "Segundo apellido(opcional)"/>
+    </div>
+</div>
+<div class="form-group col-sm-10">
+    <label for="sel1 col-sm-2" for="alCar">Carrera:</label>
+    <select class="form-control col-sm-4" id="alCar" ng-model="alumno.alumno_carrera">
+        <option>Ing. en Computación</option>
+        <option>Ing. en Comunicaciones y Electrónica</option>
+        <option>Psicología</option>
+        <option>Enfermería</option>
+    </select>
+</div>
+<div class= "form-group">
+    <label class= "col-md-2"></label>
+    <div class="col-md-4">
+    <a href="#/allist" class="btn">Cancelar</a>
+    <input type="submit" ng-disabled="isClean() || myForm.$invalid" class="btn btn-primary" value="Guardar">
+    
+    </div>
+</div>
+</div>
+</form>
+        </div></div>
+    </div>
+</div>

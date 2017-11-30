@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Préstamo #{{prestamo._id}}</h2> 
+  <br><br>
+
+  <div class="form-group">
+      <label class="control-label col-sm-2">Alumno:</label>
+      <div class="col-sm-2">
+        <p class="form-control-static">{{nomAl}}</p>
+      </div>
+      <label class="control-label col-sm-2">Carrera:</label>
+      <div class="col-sm-2">
+        <p class="form-control-static">{{carAl}}</p>
+      </div>
+  </div>
+  
+  <div class="col-md-12" >     
+    <br>
+    <h4>Lista de Artículos</h4> <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="data in articulos">
+        <td>{{data.artID}}</td>
+        <td>{{data.articulo_nombre}}</td>
+        <td>{{data.linea_unidades}}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+  <a href="#/prestamos" class="btn btn-primary" role="button">Volver</a>
+  <br>
+  <br>
+
+</div>
+
+
+
+
+</div>

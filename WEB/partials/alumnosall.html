@@ -1,0 +1,65 @@
+<div class="container">
+  <h2>Alumnos</h2> 
+  
+  <div class="col-md-11" >  
+    
+  <div class="form-group">
+
+        <label class="control-label col-sm-1" for="inFiltro">Buscar:</label>
+        <div class="col-sm-3">          
+            <input type="text" class="form-control" id="inFiltro" ng-model="ifiltro" placeholder="Ingrese nombre o Matrícula" ng-disabled="alumnos.length <= 0">
+        </div>
+
+    </div>
+    <div class="form-group col-md-6" align="right">
+      <a href="#/add" class="btn btn-primary" role="button">
+        Registrar Alumno
+      </a>
+    </div>
+    
+
+  <table class="table table-striped" ng-show="alumnos.length > 0">
+    <thead>
+      <tr>
+        <th>Matrícula</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Carrera</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr dir-paginate="data in alumnos | filter: ifiltro | itemsPerPage:pageSize" current-Page="currentPage">
+        <td>{{data.alumno_matricula}}</td>
+        <td>{{data.alumno_nombre}}</td>
+        <td>{{data.apellidos}}</td>
+        <td>{{data.alumno_carrera}}</td>
+        <td>
+        	<div class="btn-group btn-group-xs">
+          <a href="#/editaralumno/{{data.alumno_matricula}}" class="btn btn-primary" role="button">Editar</a>
+			    <button type="button" class="btn btn-primary" ng-click="eliminarAlumno(data);">Eliminar</button>
+
+  			</div>
+
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div class="text-center">
+    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+  </div>
+
+
+</div>
+<div class="col-md-12" ng-show="alumnos.length == 0">
+        <div class="col-md-12">
+            <h4>No customers found</h4>
+        </div>
+</div>
+
+
+
+</div>

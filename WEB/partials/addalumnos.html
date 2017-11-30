@@ -1,0 +1,56 @@
+<div class="conteiner">
+	<h2>Registrar Alumno</h2>
+	<form class="form-horizontal"  method="post" role="form" ng-submit="saveAlumno(alumno);">
+
+	    <div class="form-group">
+	    	<label class="control-label col-sm-2" for="alMat">Matrícula:</label>
+	    	<div class="col-sm-8">          
+	    		<input type="text" title="Solo 8 digitos" pattern="^\d{8}$"class="form-control" id="alMat" ng-model="alumno.alumno_matricula" required>
+	      	</div>
+	    </div>
+
+	    <div class="form-group">
+	    	<label class="control-label col-sm-2" for="alNom">Nombre:</label>
+	    	<div class="col-sm-8">          
+	    		<input type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" class="form-control" id="alNom" ng-model="alumno.alumno_nombre" required>
+	      	</div>
+	    </div>
+
+	    <div class="form-group">
+	    	<label class="control-label col-sm-2" for="alAPat">Apellido Paterno:</label>
+	    	<div class="col-sm-8">          
+	    		<input type="text" class="form-control" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" id="alAPat" ng-model="alumno.alumno_apellidop" required>
+	      	</div>
+	    </div>
+
+	    <div class="form-group">
+	    	<label class="control-label col-sm-2" for="alAMat">Apellido Materno:</label>
+	    	<div class="col-sm-8">          
+	    		<input type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" class="form-control" id="alAMat" ng-model="alumno.alumno_apellidom" required>
+	      	</div>
+	    </div>
+
+	    <div class="form-group col-sm-10">
+			<label for="alCar" class="col-sm-2" >Carrera:</label>
+			<select class="form-control col-sm-2" id="alCar" ng-model="alumno.alumno_carrera" required>
+		    	<option value="">Selecciona una carrera</option>
+		    	<option>Ing. en Computación</option>
+		    	<option>Ing. en Comunicaciones y Electrónica</option>
+		    	<option>Psicología</option>
+		    	<option>Enfermería</option>
+		  	</select>
+		  	<span ng-show="sel==0" class="help-inline">Required</span>
+		</div>
+
+	    <div class= "form-group">
+		    <label class= "col-md-2"></label>
+		    <div class="col-md-4">
+		    <a href="#/allist" class="btn">Cancelar</a>
+		    <input type="submit" class="btn btn-primary" value="Agregar">
+		    </div>
+		</div>
+		
+	</form>
+
+	
+</div>

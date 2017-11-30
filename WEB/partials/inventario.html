@@ -1,0 +1,41 @@
+
+<div class="container">
+<h2>Inventario</h2>
+<br>   
+
+    <div class="col-md-11" ng-show="articulos.length > 0">
+    
+    <div class="form-group">
+        <label class="control-label col-sm-1" for="inFiltro">Buscar:</label>
+        <div class="col-sm-3">          
+            <input type="text" class="form-control" id="inFiltro" ng-model="ifiltro" placeholder="Buscar">
+        </div>
+    </div>
+        <br>
+        <br>
+        <table class="table table-striped">
+        <thead>
+        <th>ID&nbsp;</th>
+        <th>Nombre&nbsp;</th>
+        <th>Descripción&nbsp;</th>
+        <th>Opciones&nbsp;</th>
+        </thead>
+        <tbody>
+            <tr dir-paginate="data in articulos | filter: ifiltro| itemsPerPage:pageSize" current-Page="currentPage">
+                <td>{{data.articulo_id}}</td>
+                <td>{{data.articulo_nombre}}</td>
+                <td>{{data.articulo_descripcion}}</td>
+                <td><button type="button" class="btn btn-primary" ng-click="add(data)">Agregar a lista</button></td>
+            </tr>
+        </tbody>
+        </table>
+        <div class="text-center">
+            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="partials/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
+    <div class="col-md-12" ng-show="articulos.length == 0">
+        <div class="col-md-12">
+            <h4>No customers found</h4>
+        </div>
+    </div>
+</div>
